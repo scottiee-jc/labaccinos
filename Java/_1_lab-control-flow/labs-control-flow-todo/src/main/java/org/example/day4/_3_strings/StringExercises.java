@@ -12,7 +12,7 @@ public class StringExercises {
 
     */
     String goodJob(String name) {
-        return "";
+        return "Good job, " + name + "!";
     }
 
     /*
@@ -25,8 +25,11 @@ public class StringExercises {
        doubleFirstHalf("panda")    -> "panda"
     */
     String doubleFirstHalf(String str) {
-
-        return "";
+        if (str.length() % 2 == 0){
+            String half = str.substring(0, str.length() / 2);
+            return half + half;
+        }
+        return str;
     }
 
     /*
@@ -39,7 +42,7 @@ public class StringExercises {
      */
     String interlace(String a, String b) {
 
-        return "";
+        return a+b+a+b+a;
     }
 
     /*
@@ -51,7 +54,10 @@ public class StringExercises {
         cutEnds("a")     -> ""
      */
     String cutEnds(String str) {
-
+        if (str.length() >= 3){
+            int end = (str.length()-1);
+            return str.substring(1, end);
+        }
         return "";
     }
 

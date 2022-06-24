@@ -4,11 +4,14 @@ public class WarmupExercises {
 
 
 
-    boolean isFirstGreaterThanSecond(int n1, int n2){
+    boolean isFirstGreaterThanSecond(int n1, int n2) {
         /*
             TODO 1
             Implement the logic - method returns true if n1 > n2, false otherwise.
         */
+        if (n1 > n2) {
+            return true;
+        }
 
         return false;
     }
@@ -21,6 +24,10 @@ public class WarmupExercises {
             Use String API to check the equality.
 
         */
+
+        if(s1.equals(s2)){
+            return true;
+        }
 
         return  false;
     }

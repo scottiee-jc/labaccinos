@@ -15,13 +15,20 @@ public class ControlFlowExercises {
      */
     boolean kidsRide(int temp, boolean isWinter) {
 
+        if ((temp >= 10 && temp <= 30) && isWinter){
+            return true;
+        } else if ((temp >= 15 && temp <= 30)){
+            return true;
+        }
+
         return false;
     }
 
     /*
         TODO 4
 
-        Given two int values, a and b, return true if either one is 8. Or if their sum, difference or product is 6.
+        Given two int values, a and b, return true if either one is 8.
+        Or if their sum, difference or product is 6.
         The function Math.abs(num) computes the absolute value of a number.
 
         find8(8, 8)  -> true
@@ -34,13 +41,23 @@ public class ControlFlowExercises {
      */
     boolean find8(int a, int b) {
 
+        if(a == 8 || b == 8) {
+            return true;
+        } else if (Math.abs(a + b) == 8){
+            return true;
+        } else if (Math.abs(a - b) == 8) {
+            return true;
+        } else if (a * b == 8) {
+            return true;
+        }
         return false;
     }
 
     /*
         TODO 5
 
-        Given 3 int values, a b c, return their sum. However, if one of the values is the same as another of the values,
+        Given 3 int values, a b c, return their sum. However, if one of the
+        values is the same as another of the values,
         it should only count once towards the sum.
 
         sum(2, 3, 4) -> 9
@@ -51,14 +68,21 @@ public class ControlFlowExercises {
         sum(5, 7, 3) -> 15
      */
     int sum(int a, int b, int c) {
-
-        return 0;
+        if (a == b && a == c) {
+            return a;
+        } else if (b == c || a == c) {
+            return b + a;
+        } else if (a == b || a == c){
+            return b + c;
+        }
+        return a + b + c;
     }
 
     /*
         TODO 6
 
-        You are invited out to dinner. Return true if you should go. Normally you go, except on Sundays you only
+        You are invited out to dinner. Return true if you should go.
+        Normally you go, except on Sundays you only
         go with your mom. In all cases, if it is past 20, you do not go.
 
         goOut(false, false, false) → true
@@ -69,15 +93,21 @@ public class ControlFlowExercises {
      */
     boolean goOut(boolean isSunday, boolean isMom, boolean isPast20) {
 
+        if ((!isSunday && !isPast20) || (isSunday && isMom && !isPast20)){
+            return true;
+        }
         return false;
     }
 
     /*
         TODO 7
 
-        You want to hang paintings in a line, next to one another, on a gallery wall. The wall is 'length' meters long.
-        You have a number of small paintings (1 m each) and big paintings (5 m each). Return true if it is possible
-        to fill the entire wall by choosing from the given paintings. There are no gaps between paintings.
+        You want to hang paintings in a line, next to one another, on a gallery wall.
+        The wall is 'length' meters long.
+        You have a number of small paintings (1 m each)
+        and big paintings (5 m each).
+        Return true if it is possible to fill the entire wall by choosing from the given paintings.
+        There are no gaps between paintings.
 
         hangPaintings(4, 1, 9)   -> true
         hangPaintings(3, 2, 10)  -> true
@@ -87,17 +117,25 @@ public class ControlFlowExercises {
         hangPaintings(20, 0, 21) -> false
      */
     boolean hangPaintings(int small, int big, int length) {
-
+        int bigSize = big * 5;
+        if (bigSize == length || (bigSize + small) == length || small == length) {
+            return true;
+        }
         return false;
     }
 
     /*
         TODO 8
 
-        Given a day of the week encoded as 1=Mon, 2=Tue, 3=Wed, ...7=Sun, and a boolean indicating if we are on vacation,
-        return a String saying whether you should party or not. Mon-Thu and Sun, the String should be "Don't party"
-        and on Fri and Sat, it should be "Party till midnight". Unless you are on vacation, then on Mon-Thu and Sun
-        it should be "Party till midnight", and Fri and Sat it should be "Party all night".
+        Given a day of the week encoded as 1=Mon, 2=Tue, 3=Wed, ...7=Sun,
+        and a boolean indicating if we are on vacation,
+        return a String saying whether you should party or not.
+        Mon-Thu and Sun, the String should be "Don't party"
+        and on Fri and Sat, it should be "Party till midnight".
+
+        Unless you are on vacation,
+        then on Mon-Thu and Sun it should be "Party till midnight",
+        and Fri and Sat it should be "Party all night".
 
         canParty(1, false) -> "Don't party"
         canParty(6, false) -> "Party till midnight"
@@ -105,7 +143,11 @@ public class ControlFlowExercises {
         canParty(5, true)  -> "Party all night"
      */
     String canParty(int day, boolean vacation) {
-
-        return "";
+        if (!vacation && (day == 5 || day == 6) || vacation && (day == 7 || day <= 4)) {
+            return "Party till midnight";
+        } else if (vacation && (day == 5 || day == 6)) {
+            return "Party all night";
+        }
+        return "Don't party";
     }
 }

@@ -50,6 +50,9 @@ public class ControlFlowExercisesTest {
     @DisplayName("find8")
     class Find8 {
 
+//        Given two int values, a and b, return true if either one is 8.
+//        Or if their sum, difference or product is 6.
+//        The function Math.abs(num) computes the absolute value of a number.
         @Test
         @DisplayName("should return true for (8, 8)")
         void find8_8_8() {
@@ -174,9 +177,9 @@ public class ControlFlowExercisesTest {
     class HangPaintings {
 
         @Test
-        @DisplayName("should return true for (4, 1, 2)")
-        void hangPaintings_4_1_2() {
-            assertTrue(exercises.hangPaintings(4, 1, 2));
+        @DisplayName("should return true for (4, 1, 9)")
+        void hangPaintings_4_1_9() {
+            assertTrue(exercises.hangPaintings(4, 1, 9));
         }
 
         @Test
